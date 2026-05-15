@@ -42,8 +42,9 @@ Resources:
           yum install -y docker
           service docker start
           usermod -a -G docker ec2-user
-          docker pull nginx:alpine
-          docker run -d -p 80:80 nginx:alpine
+          chkconfig docker on
+          docker pull gr00t0328/portfolio-site:latest
+          docker run -d -p 80:80 --restart always gr00t0328/portfolio-site:latest
 
 Outputs:
   WebsiteURL:
